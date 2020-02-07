@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox chkBox_remember;
     TextView Admin_txtView,NotAdmin_txtAdmin;
     private String ParentDBname ;
+    Users UserData;
 
 
     @Override
@@ -122,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(dataSnapshot.child(ParentDBname).child(input_phone).exists()){
 
 
-                    Users UserData = dataSnapshot.child(ParentDBname).child(input_phone).getValue(Users.class);
+                    UserData = dataSnapshot.child(ParentDBname).child(input_phone).getValue(Users.class);
 
                     if(UserData.getPhone().equals(input_phone)){
                         if(UserData.getPassword().equals(input_password)){

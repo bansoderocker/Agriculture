@@ -7,33 +7,55 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+
+
 public class AdminCategoryActivity extends AppCompatActivity {
 
-    ImageView imageView_crop, imageView_machine;
+    ImageView cropImageView,machineImageView,seedImageView,fertilizerImageView;
+    String Category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_category);
 
+        cropImageView = findViewById(R.id.crop_pro);
+        machineImageView = findViewById(R.id.machine_pro);
+        seedImageView = findViewById(R.id.seed_pro);
+        fertilizerImageView = findViewById(R.id.fertilizer_pro);
 
-        imageView_crop = findViewById(R.id.crop_pro);
-        imageView_machine = findViewById(R.id.machine_pro);
-
-        imageView_crop.setOnClickListener(new View.OnClickListener() {
+        cropImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminCategoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("category","crop");
+                Intent intent=new Intent(AdminCategoryActivity.this,AdminAddProductActivity.class);
+                intent.putExtra("Category","crop");
+                startActivity(intent);
+
+            }
+        });
+        machineImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AdminCategoryActivity.this,AdminAddProductActivity.class);
+                intent.putExtra("Category","machine");
+
+                startActivity(intent);
+
+            }
+        });
+        seedImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AdminCategoryActivity.this,AdminAddProductActivity.class);
+                intent.putExtra("Category","seed");
                 startActivity(intent);
             }
         });
-
-        imageView_machine.setOnClickListener(new View.OnClickListener() {
+        fertilizerImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminCategoryActivity.this,AdminAddProductActivity.class);
-                intent.putExtra("category","machine");
+                Intent intent=new Intent(AdminCategoryActivity.this,AdminAddProductActivity.class);
+                intent.putExtra("Category","fertilizer");
                 startActivity(intent);
             }
         });
